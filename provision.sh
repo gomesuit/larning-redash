@@ -22,3 +22,9 @@ docker-compose up -d postgres
 docker-compose up -d
 
 
+# postgres
+#yum install 'https://download.postgresql.org/pub/repos/yum/testing/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm'
+#yum install postgresql-server
+#postgresql-setup initdb
+#systemctl start postgresql
+
