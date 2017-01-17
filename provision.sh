@@ -45,3 +45,40 @@ $run_redash /opt/redash/current/manage.py ds new "Redash Metadata" --type "pg" -
 
 docker-compose up -d
 
+
+
+#    # memo
+#    yum install git
+#    git clone https://github.com/getredash/redash.git
+#    cd redash/
+#    cp setup/amazon_linux/files/env ./.env
+#    
+#    curl -s -L git.io/nodebrew | perl - setup
+#    export PATH=$HOME/.nodebrew/current/bin:$PATH
+#    nodebrew install-binary v6.9.1
+#    nodebrew use v6.9.1
+#    npm install -g bower
+#    
+#    npm install --no-progress
+#    curl -X GET 'https://bootstrap.pypa.io/get-pip.py' | python
+#    
+#    yum install postgresql96-devel
+#    yum install postgresql-devel
+#    yum install gcc
+#    yum install python-devel
+#    yum install openssl-devel
+#    pip install -r requirements.txt
+#    
+#    # vim .env
+#    yum install epel-release
+#    yum install redis
+#    systemctl start redis
+#    sudo -u postgres psql createuser vagrant
+#    sudo -u postgres psql createdb -O vagrant vagrant
+#    
+#    bin/run ./manage.py database drop_tables
+#    bin/run ./manage.py database create_tables
+#    bin/run ./manage.py users create --admin --password admin "Admin" "admin"
+#    bin/run ./manage.py runserver -h 0.0.0.0
+
+
