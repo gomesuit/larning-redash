@@ -1,5 +1,5 @@
 redash:
-  image: redash/redash:latest
+  image: redash/redash:1.0.0.b2588
   ports:
     - "5000:5000"
   links:
