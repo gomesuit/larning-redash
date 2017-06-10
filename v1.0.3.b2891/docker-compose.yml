@@ -7,7 +7,7 @@
 version: '2'
 services:
   server:
-    image: redash/redash:1.0.3.b2891
+    image: redash/redash:1.0.3.b2864
     command: server
     depends_on:
       - redis
@@ -20,7 +20,7 @@ services:
       REDASH_DATABASE_URL: "postgresql://postgres@192.168.33.60/postgres"
       REDASH_COOKIE_SECRET: veryverysecret
   worker:
-    image: redash/redash:1.0.3.b2891
+    image: redash/redash:1.0.3.b2864
     command: scheduler
     environment:
       PYTHONUNBUFFERED: 0
