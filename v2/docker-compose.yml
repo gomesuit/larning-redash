@@ -1,0 +1,41 @@
+# This is an example configuration for Docker Compose. Make sure to atleast update
+# the cookie secret & postgres database password.
+#
+# Some other recommendations:
+# 1. To persist Postgres data, assign it a volume host location.
+# 2. Split the worker service to adhoc workers and scheduled queries workers.
+version: '2'
+services:
+  server:
+    image: redash/redash:1.0.3.b2891
+    command: server
+    depends_on:
+      - redis
+    ports:
+      - "5000:5000"
+    environment:
+      PYTHONUNBUFFERED: 0
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres@192.168.33.60/postgres"
+      REDASH_COOKIE_SECRET: veryverysecret
+  worker:
+    image: redash/redash:1.0.3.b2891
+    command: scheduler
+    environment:
+      PYTHONUNBUFFERED: 0
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres@192.168.33.60/postgres"
+      QUEUES: "queries,scheduled_queries,celery"
+      WORKERS_COUNT: 2
+  redis:
+    image: redis:3.0-alpine
+  nginx:
+    image: redash/nginx:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+    links:
+      - server:redash

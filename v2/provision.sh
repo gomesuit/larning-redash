@@ -82,3 +82,6 @@ systemctl start postgresql-9.6
 #    bin/run ./manage.py runserver -h 0.0.0.0
 
 
+
+#docker-compose run --rm server create_db
+#docker-compose up -d
