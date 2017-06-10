@@ -19,6 +19,7 @@ cp -f /vagrant/postgresql.conf /var/lib/pgsql/9.6/data/postgresql.conf
 cp -f /vagrant/pg_hba.conf /var/lib/pgsql/9.6/data/pg_hba.conf
 systemctl start postgresql-9.6
 
+cd /vagrant
 docker-compose run --rm server create_db
 docker-compose up -d
 
